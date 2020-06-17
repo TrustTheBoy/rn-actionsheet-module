@@ -1,6 +1,9 @@
 package com.taluttasgiran.actionsheet;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +16,10 @@ public class ActionSheetAdapter extends RecyclerView.Adapter<ActionSheetAdapter.
     private String[] mDataset;
     private Callback callback;
     private ActionSheet actionSheet;
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public LinearLayout linearLayout;
+
         public MyViewHolder(LinearLayout v) {
             super(v);
             linearLayout = v;
@@ -40,6 +45,9 @@ public class ActionSheetAdapter extends RecyclerView.Adapter<ActionSheetAdapter.
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         Button button = (Button) holder.linearLayout.findViewById(R.id.btn);
         button.setText(mDataset[position]);
+        if ("取消".equals(button.getText().toString())) {
+            button.setGravity(Gravity.CENTER);
+        }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
