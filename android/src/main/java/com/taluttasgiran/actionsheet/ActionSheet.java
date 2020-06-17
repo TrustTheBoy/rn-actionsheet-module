@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -38,6 +40,7 @@ public class ActionSheet extends BottomSheetDialog {
 
         TextView tvTitle = (TextView) sheetView.findViewById(R.id.title);
         tvTitle.setText(title);
+        tvTitle.setGravity(Gravity.CENTER);
         mBottomSheetDialog.setContentView(sheetView);
     }
 
